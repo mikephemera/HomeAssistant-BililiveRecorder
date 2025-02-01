@@ -12,13 +12,15 @@ PGID=$(bashio::config 'pgid')
 mkdir -p ${STORAGE_PATH}
 
 # 设置环境变量
-export BREC_HTTP_BASIC_USER=${USERNAME}
-export BREC_HTTP_BASIC_PASS=${PASSWORD}
+export BREC_HTTP_OPEN_ACCESS="2"  # 禁用非局域网访问警告
+# 移除HTTP Basic认证（由Ingress处理认证）
+unset BREC_HTTP_BASIC_USER
+unset BREC_HTTP_BASIC_PASS
 [ ! -z "${UMASK}" ] && export UMASK=${UMASK}
 [ ! -z "${PUID}" ] && export PUID=${PUID}
 [ ! -z "${PGID}" ] && export PGID=${PGID}
 
-# 运行录播姬
-exec /entrypoint.sh --http-basic "${USERNAME}:${PASSWORD}" \
-    -d "/rec" \
-    --web-ui-url http://homeassistant.local:2356/
+# 运行录播姬（适配Ingress，无需指定端口和认证）
+exec /entrypoint.sh \
+    --http-open-access 2 \
+    -d "/rec"

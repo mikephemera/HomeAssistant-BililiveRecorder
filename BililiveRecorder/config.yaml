@@ -12,16 +12,12 @@ map:
   - type: share
     read_only: false
     path: /rec
-ports:
-  "2356/tcp": 2356
-ports_description:
-  "2356/tcp": Web管理界面端口
-# 启用Ingress功能
+# 移除端口映射（通过Ingress访问）
 ingress: true
-ingress_port: 2356  # 与Web管理端口一致
+ingress_port: 2356  # 与服务实际监听端口一致
 options:
   storage_path: /share/bilirec
-  username: admin
+  username: admin   # 保留配置但不在插件中使用
   password: password
   umask: "022"
   pgid: 1000
