@@ -6,8 +6,6 @@ FROM $BUILD_FROM
 COPY run.sh /
 RUN chmod a+x /run.sh
 
-# 暴露端口
-EXPOSE 2356/tcp
 
 # 启动脚本
 CMD [ "/run.sh" ]
