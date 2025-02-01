@@ -20,7 +20,12 @@ unset BREC_HTTP_BASIC_PASS
 [ ! -z "${PUID}" ] && export PUID=${PUID}
 [ ! -z "${PGID}" ] && export PGID=${PGID}
 
-# 运行录播姬（适配Ingress，无需指定端口和认证）
+# 输出关键环境变量供调试
+bashio::log.info "=== 环境变量验证 ==="
+bashio::log.info "BREC_HTTP_OPEN_ACCESS: ${BREC_HTTP_OPEN_ACCESS}"
+bashio::log.info "监听地址: 127.0.0.1:2356"
+
 exec /entrypoint.sh \
     --http-open-access 2 \
+    --http-ip 127.0.0.1 \
     -d "/rec"
