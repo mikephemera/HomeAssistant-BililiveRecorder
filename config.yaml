@@ -1,0 +1,57 @@
+# config.yaml
+name: 录播姬
+version: "2.0.0"
+slug: bililive_recorder
+description: 基于Bililive Recorder的直播录制工具
+arch: ["amd64", "aarch64", "armv7"]
+url: "https://github.com/mikephemera/HomeAssistant-BililiveRecorder"
+startup: "application"
+ports:
+  "2356/tcp": 2356
+ports_description:
+  "2356/tcp": "Web管理界面端口"
+map:
+  - config:rw
+  - media:rw  # 如果需挂载外部存储
+options:
+  storage_path: "/media/bililive"  # 用户自定义存储路径
+  http_user: "admin"
+  http_pass: "password"
+  umask: "022"
+  puid: 1000  # 可选
+  pgid: 1000  # 可选
+schema:
+  storage_path:
+    name: "存储路径"
+    description: "录播文件保存的宿主机绝对路径"
+    required: true
+    type: "string"
+  http_user:
+    name: "用户名"
+    type: "string"
+    required: true
+  http_pass:
+    name: "密码"
+    type: "string"
+    required: true
+  umask:
+    name: "文件权限掩码"
+    type: "string"
+    default: "022"
+  puid:
+    name: "用户ID"
+    type: "integer"
+    optional: true
+  pgid:
+    name: "用户组ID"
+    type: "integer"
+    optional: true
+image: "bililive/recorder:latest"
+environment:
+  BREC_HTTP_BASIC_USER: "{{ options.http_user }}"
+  BREC_HTTP_BASIC_PASS: "{{ options.http_pass }}"
+  UMASK: "{{ options.umask }}"
+  PUID: "{{ options.puid }}"
+  PGID: "{{ options.pgid }}"
+volumes:
+  - "{{ options.storage_path }}:/rec:rw"
