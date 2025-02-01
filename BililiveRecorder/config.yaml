@@ -17,8 +17,7 @@ ports:
 ports_description:
   "2356/tcp": Web管理界面端口
 # 启用Ingress功能
-ingress: true
-ingress_port: 2356  # 与Web管理端口一致
+
 options:
   storage_path: /share/bilirec
   username: admin
