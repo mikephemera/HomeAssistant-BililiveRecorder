@@ -31,8 +31,10 @@ schema:
   puid: "int?"
 image: bililive/recorder
 
-# 环境变量不能在这里设置
+# 环境变量
 environment:
   BREC_HTTP_OPEN_ACCESS: "true"
+  BREC_HTTP_BASIC_USER: ${username}
+  BREC_HTTP_BASIC_PASS: ${password}
 
 panel_icon:	mdi:television-classic

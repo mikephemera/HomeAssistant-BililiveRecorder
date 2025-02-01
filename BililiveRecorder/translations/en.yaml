@@ -4,8 +4,10 @@ configuration:
     description: Path to store recordings (relative to /share)
   username:
     name: Web Username
+    description: Keep configuration but not used in plugin when Ingress is enabled
   password:
     name: Web Password
+    description: Keep configuration but not used in plugin when Ingress is enabled
   umask:
     name: UMASK
     description: File permission mask (e.g. 022)
