@@ -2,7 +2,7 @@ name: 哔哩录播姬
 version: "2.0.0"
 slug: bililive_recorder
 description: 基于BililiveRecorder的直播录制工具
-url: https://rec.danmuji.org/
+url: https://github.com/mikephemera/HomeAssistant-BililiveRecorder/
 arch:
   - amd64
   - armv7
@@ -16,6 +16,9 @@ ports:
   "2356/tcp": 2356
 ports_description:
   "2356/tcp": Web管理界面端口
+# 启用Ingress功能
+ingress: true
+ingress_port: 2356  # 与Web管理端口一致
 options:
   storage_path: /share/bilirec
   username: admin

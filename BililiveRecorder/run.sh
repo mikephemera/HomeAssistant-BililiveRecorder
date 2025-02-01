@@ -9,7 +9,7 @@ PUID=$(bashio::config 'puid')
 PGID=$(bashio::config 'pgid')
 
 # 创建持久化目录
-mkdir -p ${STORAGE_PATH}
+mkdir -p "${STORAGE_PATH}"
 
 # 设置环境变量
 export BREC_HTTP_BASIC_USER=${USERNAME}
@@ -18,7 +18,9 @@ export BREC_HTTP_BASIC_PASS=${PASSWORD}
 [ ! -z "${PUID}" ] && export PUID=${PUID}
 [ ! -z "${PGID}" ] && export PGID=${PGID}
 
-# 运行录播姬
-exec /entrypoint.sh --http-basic "${USERNAME}:${PASSWORD}" \
+# 运行录播姬（适配 Ingress）
+exec /entrypoint.sh \
+    --http-basic "${USERNAME}:${PASSWORD}" \
     -d "/rec" \
-    --web-ui-url http://homeassistant.local:2356/
+    --web-ui-binding "0.0.0.0" \
+    --web-ui-port 2356
