@@ -13,6 +13,8 @@ mkdir -p "${STORAGE_PATH}"
 
 # 设置环境变量
 export BREC_HTTP_OPEN_ACCESS="true"  # 禁用警告
+export BREC_HTTP_BASIC_USER=${USERNAME}
+export BREC_HTTP_BASIC_PASS=${PASSWORD}
 [ ! -z "${UMASK}" ] && export UMASK=${UMASK}
 [ ! -z "${PUID}" ] && export PUID=${PUID}
 [ ! -z "${PGID}" ] && export PGID=${PGID}
@@ -25,6 +27,7 @@ iptables -A INPUT -p tcp --dport 2356 -j DROP
 # 运行录播姬（适配 Ingress）
 exec /entrypoint.sh \
     --http-basic "${USERNAME}:${PASSWORD}" \
+    --http-open-access "true" \
     -d "/rec" \
     --web-ui-binding "0.0.0.0" \
     --web-ui-port 2356
