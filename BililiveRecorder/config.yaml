@@ -1,7 +1,7 @@
-name: 哔哩录播姬
-version: "2.0.0"
+name: 哔哩哔哩录播姬
+version: "latest 1.1"
 slug: bililive_recorder
-description: 基于BililiveRecorder的直播录制工具
+description: 基于BililiveRecorder录播姬的直播录制工具
 url: https://github.com/mikephemera/HomeAssistant-BililiveRecorder/
 arch:
   - amd64
