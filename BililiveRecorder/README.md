@@ -3,9 +3,9 @@
 [![Version](https://img.shields.io/github/tag/Bililive/BililiveRecorder.svg?label=Version)](https://github.com/mikephemera/HomeAssistant-BililiveRecorder/releases)
 [![License](https://img.shields.io/github/license/mikephemera/HomeAssistant-BililiveRecorder.svg)](LICENSE)
 [![Home Assistant Add-on](https://img.shields.io/badge/Home%20Assistant-Add--on-blue.svg)](https://www.home-assistant.io/)
+[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/mikephemera)
 
 将[BililiveRecorder](https://rec.danmuji.org/)（录播姬）无缝集成到Home Assistant中，实现直播自动录制与管理。
-
 <img src="https://rec.danmuji.org/_astro/favicon.1uJQdJSa.svg" width="250" alt="BililiveRecorder Logo">
 
 ---
@@ -63,4 +63,6 @@
 本项目基于 [GPL-3.0 License](LICENSE) 开源。  
 录播姬核心功能由 [BililiveRecorder](https://github.com/BililiveRecorder/BililiveRecorder) 提供。
 
-[![Star History](https://starchart.cc/mikephemera/HomeAssistant-BililiveRecorder.svg)](https://starchart.cc/mikephemera/HomeAssistant-BililiveRecorder)
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=mikephemera/HomeAssistant-BililiveRecorder&type=Date)](https://star-history.com/#mikephemera/HomeAssistant-BililiveRecorder&Date)
