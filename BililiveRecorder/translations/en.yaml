@@ -1,0 +1,17 @@
+configuration:
+  storage_path:
+    name: Storage Path
+    description: Path to store recordings (relative to /share)
+  username:
+    name: Web Username
+  password:
+    name: Web Password
+  umask:
+    name: UMASK
+    description: File permission mask (e.g. 022)
+  pgid:
+    name: PGID
+  puid:
+    name: PUID
+network:
+  "2356/tcp": Web interface port
