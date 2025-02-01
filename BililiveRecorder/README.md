@@ -6,7 +6,7 @@
 
 将[BililiveRecorder](https://rec.danmuji.org/)（录播姬）无缝集成到Home Assistant中，实现直播自动录制与管理。
 
-<img src="logo.png" width="250" alt="BililiveRecorder Logo">
+<img src="https://rec.danmuji.org/_astro/favicon.1uJQdJSa.svg" width="250" alt="BililiveRecorder Logo">
 
 ---
 
