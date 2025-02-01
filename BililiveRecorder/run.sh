@@ -9,25 +9,16 @@ PUID=$(bashio::config 'puid')
 PGID=$(bashio::config 'pgid')
 
 # 创建持久化目录
-mkdir -p "${STORAGE_PATH}"
+mkdir -p ${STORAGE_PATH}
 
 # 设置环境变量
-export BREC_HTTP_OPEN_ACCESS="true"  # 禁用警告
 export BREC_HTTP_BASIC_USER=${USERNAME}
 export BREC_HTTP_BASIC_PASS=${PASSWORD}
 [ ! -z "${UMASK}" ] && export UMASK=${UMASK}
 [ ! -z "${PUID}" ] && export PUID=${PUID}
 [ ! -z "${PGID}" ] && export PGID=${PGID}
 
-# 设置 IP 白名单（仅允许 172.30.32.2 访问）
-ALLOWED_IP="172.30.32.2"
-iptables -A INPUT -p tcp --dport 2356 -s "${ALLOWED_IP}" -j ACCEPT
-iptables -A INPUT -p tcp --dport 2356 -j DROP
-
-# 运行录播姬（适配 Ingress）
-exec /entrypoint.sh \
-    --http-basic "${USERNAME}:${PASSWORD}" \
-    --http-open-access "true" \
+# 运行录播姬
+exec /entrypoint.sh --http-basic "${USERNAME}:${PASSWORD}" \
     -d "/rec" \
-    --web-ui-binding "0.0.0.0" \
-    --web-ui-port 2356
+    --web-ui-url http://0.0.0.0:2356/

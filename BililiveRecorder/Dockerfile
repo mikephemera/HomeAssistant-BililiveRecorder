@@ -1,8 +1,6 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-# 安装 iptables
-RUN apk add --no-cache iptables
 
 # 复制运行脚本
 COPY run.sh /
