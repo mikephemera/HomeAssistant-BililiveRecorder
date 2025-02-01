@@ -34,3 +34,5 @@ image: bililive/recorder
 # 环境变量不能在这里设置
 environment:
   BREC_HTTP_OPEN_ACCESS: "true"
+
+panel_icon:	mdi:television-classic
