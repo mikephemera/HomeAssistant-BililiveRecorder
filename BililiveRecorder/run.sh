@@ -21,4 +21,4 @@ export BREC_HTTP_BASIC_PASS=${PASSWORD}
 # 运行录播姬
 exec /entrypoint.sh --http-basic "${USERNAME}:${PASSWORD}" \
     -d "/rec" \
-    --web-ui-url http://0.0.0.0:2356/
+    --web-ui-url http://homeassistant.local:2356/
