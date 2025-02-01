@@ -17,8 +17,9 @@ export BREC_HTTP_OPEN_ACCESS="true"  # 禁用警告
 [ ! -z "${PUID}" ] && export PUID=${PUID}
 [ ! -z "${PGID}" ] && export PGID=${PGID}
 
-# 添加 IP 白名单（仅允许 Ingress 网关访问）
-iptables -A INPUT -p tcp --dport 2356 -s 172.30.32.2 -j ACCEPT
+# 设置 IP 白名单（仅允许 172.30.32.2 访问）
+ALLOWED_IP="172.30.32.2"
+iptables -A INPUT -p tcp --dport 2356 -s "${ALLOWED_IP}" -j ACCEPT
 iptables -A INPUT -p tcp --dport 2356 -j DROP
 
 # 运行录播姬（适配 Ingress）
