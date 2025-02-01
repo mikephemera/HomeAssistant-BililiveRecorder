@@ -12,20 +12,15 @@ PGID=$(bashio::config 'pgid')
 mkdir -p ${STORAGE_PATH}
 
 # 设置环境变量
-export BREC_HTTP_OPEN_ACCESS="2"  # 禁用非局域网访问警告
-# 移除HTTP Basic认证（由Ingress处理认证）
-unset BREC_HTTP_BASIC_USER
-unset BREC_HTTP_BASIC_PASS
-[ ! -z "${UMASK}" ] && export UMASK=${UMASK}
-[ ! -z "${PUID}" ] && export PUID=${PUID}
-[ ! -z "${PGID}" ] && export PGID=${PGID}
+export BREC_HTTP_OPEN_ACCESS = "true"
+bashio::log.info "BREC_HTTP_OPEN_ACCESS is set to: ${BREC_HTTP_OPEN_ACCESS}"
 
-# 输出关键环境变量供调试
-bashio::log.info "=== 环境变量验证 ==="
-bashio::log.info "BREC_HTTP_OPEN_ACCESS: ${BREC_HTTP_OPEN_ACCESS}"
-bashio::log.info "监听地址: 127.0.0.1:2356"
+# 检查所有环境变量
+bashio::log.info "=== 环境变量列表 ==="
+printenv | grep BREC_
 
+# 运行录播姬（绑定到本地回环地址）
 exec /entrypoint.sh \
-    --http-open-access 2 \
+    --http-open-access "${BREC_HTTP_OPEN_ACCESS}" \
     --http-ip 127.0.0.1 \
     -d "/rec"

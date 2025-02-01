@@ -1,5 +1,5 @@
 name: 哔哩哔哩录播姬
-version: "latest"
+version: "2.14.0"
 slug: bililive_recorder
 description: 基于BililiveRecorder录播姬的直播录制工具
 url: https://github.com/mikephemera/HomeAssistant-BililiveRecorder/
@@ -30,3 +30,6 @@ schema:
   pgid: "int?"
   puid: "int?"
 image: bililive/recorder
+
+environment:
+  BREC_HTTP_OPEN_ACCESS: "true"
