@@ -34,7 +34,7 @@ https://github.com/mikephemera/HomeAssistant-BililiveRecorder
 如果你可以成功打开 Web UI，说明加载项运行正常。若遇到使用问题，你应该查阅[录播姬官方FAQ](https://rec.danmuji.org/user/faq/)获取解决方案。
 
 ## 📜 更新日志
-参见 CHANGELOG.md
+参见 [CHANGELOG.md](BililiveRecorder/CHANGELOG.md)
 
 ## 参考资料 & 鸣谢
 - [录播姬](https://rec.danmuji.org/) 本项目完全建立在录播姬的Docker容器镜像上

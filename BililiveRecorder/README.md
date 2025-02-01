@@ -6,6 +6,7 @@
 [![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/mikephemera)
 
 将[BililiveRecorder](https://rec.danmuji.org/)（录播姬）无缝集成到Home Assistant中，实现直播自动录制与管理。
+
 <img src="https://rec.danmuji.org/_astro/favicon.1uJQdJSa.svg" width="250" alt="BililiveRecorder Logo">
 
 ---
