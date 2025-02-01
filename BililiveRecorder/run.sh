@@ -9,7 +9,7 @@ PUID=$(bashio::config 'puid')
 PGID=$(bashio::config 'pgid')
 
 # 创建持久化目录
-mkdir -p "${STORAGE_PATH}"
+mkdir -p ${STORAGE_PATH}
 
 # 设置环境变量
 export BREC_HTTP_BASIC_USER=${USERNAME}
@@ -22,4 +22,5 @@ export BREC_HTTP_BASIC_PASS=${PASSWORD}
 exec /entrypoint.sh \
     --http-basic "${USERNAME}:${PASSWORD}" \
     -d "/rec" \
-    --web-ui-url http://0.0.0.0:2356/
+    --web-ui-binding "0.0.0.0" \
+    --web-ui-port 2356
