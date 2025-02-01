@@ -18,9 +18,7 @@ export BREC_HTTP_BASIC_PASS=${PASSWORD}
 [ ! -z "${PUID}" ] && export PUID=${PUID}
 [ ! -z "${PGID}" ] && export PGID=${PGID}
 
-# 运行录播姬（适配 Ingress）
-exec /entrypoint.sh \
-    --http-basic "${USERNAME}:${PASSWORD}" \
+# 运行录播姬
+exec /entrypoint.sh --http-basic "${USERNAME}:${PASSWORD}" \
     -d "/rec" \
-    --web-ui-binding "0.0.0.0" \
-    --web-ui-port 2356
+    --web-ui-url http://0.0.0.0:2356/
