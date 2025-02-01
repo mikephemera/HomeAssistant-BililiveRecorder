@@ -1,5 +1,5 @@
 name: 哔哩哔哩录播姬
-version: "2.14.0"
+version: "latest"
 slug: bililive_recorder
 description: 基于BililiveRecorder录播姬的直播录制工具
 url: https://github.com/mikephemera/HomeAssistant-BililiveRecorder/
@@ -16,7 +16,9 @@ ports:
   "2356/tcp": 2356
 ports_description:
   "2356/tcp": Web管理界面端口
-
+# 启用Ingress功能
+ingress: true
+ingress_port: 2356  # 与Web管理端口一致
 options:
   storage_path: /share/bilirec
   username: admin
