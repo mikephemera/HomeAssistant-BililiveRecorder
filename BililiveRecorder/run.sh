@@ -12,11 +12,14 @@ PGID=$(bashio::config 'pgid')
 mkdir -p "${STORAGE_PATH}"
 
 # 设置环境变量
-export BREC_HTTP_BASIC_USER=${USERNAME}
-export BREC_HTTP_BASIC_PASS=${PASSWORD}
+export BREC_HTTP_OPEN_ACCESS="true"  # 禁用警告
 [ ! -z "${UMASK}" ] && export UMASK=${UMASK}
 [ ! -z "${PUID}" ] && export PUID=${PUID}
 [ ! -z "${PGID}" ] && export PGID=${PGID}
+
+# 添加 IP 白名单（仅允许 Ingress 网关访问）
+iptables -A INPUT -p tcp --dport 2356 -s 172.30.32.2 -j ACCEPT
+iptables -A INPUT -p tcp --dport 2356 -j DROP
 
 # 运行录播姬（适配 Ingress）
 exec /entrypoint.sh \
